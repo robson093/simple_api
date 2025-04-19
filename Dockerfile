@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
 # Copy the project files
-COPY *.csproj ./
+COPY src/SimpleApi/*.csproj ./
 RUN dotnet restore
 
 # Copy the rest of the application files
