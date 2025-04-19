@@ -1,28 +1,24 @@
-# Use the official .NET SDK image to build the application
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-
-# Set the working directory
+# Etap bazowy – środowisko uruchomieniowe
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app
 
-# Copy the project files
-COPY src/SimpleApi/*.csproj ./
-RUN dotnet restore
+# Etap builda – SDK do kompilacji
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
 
-# Copy the rest of the application files
-COPY . ./
+# Skopiuj całą zawartość repo do obrazu
+COPY ./src/SimpleApi ./SimpleApi
+
+# Przywracanie zależności
+RUN dotnet restore src/SimpleApi/SimpleApi.csproj
+
+# Publikacja aplikacji do folderu /out
+WORKDIR /src/src/SimpleApi
 RUN dotnet publish -c Release -o /out
 
-# Use the official .NET runtime image to run the application
-FROM mcr.microsoft.com/dotnet/aspnet:9.0
-
-# Set the working directory
+# Etap finalny – gotowa aplikacja w obrazie uruchomieniowym
+FROM base AS final
 WORKDIR /app
-
-# Copy the published output from the build stage
 COPY --from=build /out .
 
-# Expose the port the app runs on
-EXPOSE 80
-
-# Set the entry point for the container
 ENTRYPOINT ["dotnet", "SimpleApi.dll"]
