@@ -19,13 +19,13 @@ jobs:
           dotnet-version: "9.0.x"
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore ./src/SimpleApi/SimpleApi.csproj
 
       - name: Build the solution
-        run: dotnet build --configuration Release
+        run: dotnet build ./src/SimpleApi/SimpleApi.csproj --configuration Release
 
       - name: Run tests
-        run: dotnet test --configuration Release
+        run: dotnet test ./src/SimpleApi.Tests/SimpleApi.Tests.csproj --configuration Release
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
