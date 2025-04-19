@@ -18,6 +18,9 @@ nupkg/
 # Fleet
 .fleet/
 
+# Bin folder
+bin/
+
 # Code Rush
 .cr/
 

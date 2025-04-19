@@ -6,14 +6,16 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# Skopiuj całą zawartość repo do obrazu
+# Skopiuj tylko potrzebną część repo
 COPY ./src/SimpleApi ./SimpleApi
 
-# Przywracanie zależności
-RUN dotnet restore src/SimpleApi/SimpleApi.csproj
+# Przejdź do folderu z projektem
+WORKDIR /src/SimpleApi
 
-# Publikacja aplikacji do folderu /out
-WORKDIR /SimpleApi
+# Przywracanie zależności
+RUN dotnet restore SimpleApi.csproj
+
+# Publikacja aplikacji
 RUN dotnet publish -c Release -o /out
 
 # Etap finalny – gotowa aplikacja w obrazie uruchomieniowym

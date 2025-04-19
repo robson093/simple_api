@@ -31,3 +31,4 @@ C:\Users\rober\Desktop\K8S\Github\simple_api\src\SimpleApi\obj\Debug\net9.0\refi
 C:\Users\rober\Desktop\K8S\Github\simple_api\src\SimpleApi\obj\Debug\net9.0\SimpleApi.pdb
 C:\Users\rober\Desktop\K8S\Github\simple_api\src\SimpleApi\obj\Debug\net9.0\SimpleApi.genruntimeconfig.cache
 C:\Users\rober\Desktop\K8S\Github\simple_api\src\SimpleApi\obj\Debug\net9.0\ref\SimpleApi.dll
+C:\Users\rober\Desktop\K8S\Github\simple_api\src\SimpleApi\obj\Debug\net9.0\SimpleApi.sourcelink.json
