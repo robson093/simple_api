@@ -1,6 +1,7 @@
-# Etap bazowy – środowisko uruchomieniowe
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-WORKDIR /app
+# Etap bazowy – środowisko uruchomieniowe - nie trzeba go używać, można bezpośrednio w finalnym etapie obraz podpina
+# base używać wtedy, kiedy potrzebne są bardziej złożone obrazy lub dodatkowe zależności np. apt get itd
+#FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+#WORKDIR /app
 
 # Etap builda – SDK do kompilacji
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
@@ -15,7 +16,7 @@ RUN dotnet restore
 RUN dotnet publish -c Release -o /app/publish
 
 # Etap finalny – gotowa aplikacja
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 

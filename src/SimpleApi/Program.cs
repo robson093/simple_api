@@ -25,6 +25,12 @@ app.MapGet("/me", () =>
 })
 .WithName("Me");
 
+app.MapGet("/you", () =>
+{
+    return "works No 2!";
+})
+.WithName("You");
+
 
 app.MapGet("/weatherforecast", () =>
 {
