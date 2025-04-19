@@ -13,7 +13,7 @@ COPY ./src/SimpleApi ./SimpleApi
 RUN dotnet restore src/SimpleApi/SimpleApi.csproj
 
 # Publikacja aplikacji do folderu /out
-WORKDIR /src/src/SimpleApi
+WORKDIR /SimpleApi
 RUN dotnet publish -c Release -o /out
 
 # Etap finalny – gotowa aplikacja w obrazie uruchomieniowym
