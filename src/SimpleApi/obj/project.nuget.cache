@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "mLiJd/89adw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rober\\Desktop\\K8S\\Github\\simple_api\\src\\SimpleApi\\SimpleApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rober\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.4\\microsoft.aspnetcore.openapi.9.0.4.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
